@@ -8,10 +8,17 @@ router.get('/', (req, res) => {
   const findedNews = News
     .find({title: new RegExp(search.trim(), 'i')})
     .sort({createdDate: 'desc'});
-    
+
   findedNews.exec((err, data) => {
-    res.render('news', { title: 'News', data, search});
+    res.json(data);
   });  
+});
+
+router.get('/:id', (req, res) => {
+    const findedNews = News.findById(req.params.id);  
+    findedNews.exec((err, data) => {
+      res.json(data);
+    });  
 });
 
 module.exports = router;

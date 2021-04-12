@@ -45,11 +45,7 @@ router.get('/news/delete/:newsID', (req, res) => {
   
   News.findByIdAndDelete(id, (err) => {
     res.redirect('/admin');
-  })
-
-  
+  })  
 })
-
-
 
 module.exports = router;

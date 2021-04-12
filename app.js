@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/news', newsRouter);
-app.use('/quez', quizRouter);
+app.use('/quiz', quizRouter);
 app.use('/admin', adminRouter);
 
 

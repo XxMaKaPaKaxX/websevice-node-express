@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1= title
+
+  if errors !== undefind
+    each message in errors.errors
+      p=message
+
+  form(method='post' id="add-content")
+    p 
+        label Tytuł: 
+        input(type='text' name='title')
+    p 
+        label Opis: 
+        textarea(name='description')
+    button(type='submit' form='add-content') Dodaj
+
+    

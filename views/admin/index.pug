@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href="/admin/news/add") Dodaj nowość
+  section
+    p=`lista newsów: ${news.length}`
+    table 
+      tr 
+        th id 
+        th tytuł
+        th data dodania
+        th akcja
+      each item, index in news
+        tr 
+          td= index + 1
+          td= item.title    
+          td= item.createdDate
+          td
+            a(href=`/admin/news/delete/${item._id}`) Usuń
